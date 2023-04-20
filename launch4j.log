@@ -1,0 +1,20 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\User\Desktop\RabbitsAndFoxes\RabbitsAndFoxes.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\User\Desktop\RabbitsAndFoxes\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	
+Java max ver:	
+Substitute:	JAVA_HOME = C:\Users\User\.jdks\semeru-17.0.6
+Substitute:	PATH = C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\MikTeX;C:\Users\User\.jdks\semeru-17.0.6\bin;C:\ProgramData\chocolatey\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Roaming\TinyTeX\bin\win32;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\.jdks\semeru-17.0.6\bin
+JRE paths:	C:\Users\User\.jdks\semeru-17.0.6;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\MikTeX;C:\Users\User\.jdks\semeru-17.0.6\bin;C:\ProgramData\chocolatey\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Roaming\TinyTeX\bin\win32;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\.jdks\semeru-17.0.6\bin
+Check launcher:	C:\Users\User\.jdks\semeru-17.0.6\bin\javaw.exe (OK)
+Version string: 1.017.000_006 / 64-Bit (OK)
+Launcher:	C:\Users\User\.jdks\semeru-17.0.6\bin\javaw.exe
+Launcher args:	-jar "C:\Users\User\Desktop\RabbitsAndFoxes\RabbitsAndFoxes.exe"
+Args length:	64/32768 chars
+Exit code:	0
