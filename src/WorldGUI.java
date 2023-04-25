@@ -4,7 +4,9 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -14,17 +16,39 @@ import javafx.util.Duration;
 public class WorldGUI extends Application {
     static final int WORLD_SIZE_X = 100;
     static final int WORLD_SIZE_Y = 100;
-    static final int CELL_SIZE = 9;
+    static final int CELL_SIZE = 8;
+
+    static final int BUTTON_SPACE = (int) (WORLD_SIZE_Y * CELL_SIZE * 0.2);
+
+    private static final int WINDOW_WIDTH = WORLD_SIZE_X * CELL_SIZE;
+    private static final int WINDOW_HEIGHT = WORLD_SIZE_Y * CELL_SIZE + BUTTON_SPACE;
+
+    // The margins used for all visual assets
+    private static final int MARGIN_X = 100;
+    private static final int MARGIN_Y = 50;
+    /*
+ Distance to leave from a button to the right - used for setting up
+ all the buttons at the bottom of the window.
+ */
+    private static final double BUTTON_BUFFER = 50.0;
+
+    // Group containing all the buttons, sliders and text used in this application.
+    private final Group controls = new Group();
+    // Group containing the game display
+    private final Group display = new Group();
+
 
     World world = new World(WORLD_SIZE_X, WORLD_SIZE_Y);
     Rectangle[][] squares = new Rectangle[world.sizeX][world.sizeY];
     String currentState;
 
+    Timeline timeline;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("World");
+        primaryStage.setTitle("Rabbits and Foxes");
         GridPane root = new GridPane();
-        Scene scene = new Scene(root, world.sizeX * CELL_SIZE, world.sizeY * CELL_SIZE);
+        Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
         primaryStage.setScene(scene);
 
         /*
@@ -39,9 +63,12 @@ public class WorldGUI extends Application {
             }
         }
 
+        root.getChildren().add(this.controls);
+
+        this.makeControls();
         primaryStage.show();
 
-        Timeline timeline = new Timeline(new KeyFrame(
+        timeline = new Timeline(new KeyFrame(
                 Duration.millis(200),
                 ae -> {
                     world.update();
@@ -57,6 +84,15 @@ public class WorldGUI extends Application {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+
+    public void pause() {
+        this.timeline.pause();
+    }
+
+    public void play() {
+        this.timeline.play();
+    }
+
 
     /**
      * Given a state string representing the current state of the world,
@@ -108,6 +144,29 @@ public class WorldGUI extends Application {
         }
         squares[x][y].setFill(color);
     }
+
+    public void makeControls() {
+        Button pause = new Button();
+        pause.setLayoutX(MARGIN_X);
+        pause.setLayoutY(1000);
+        pause.setOnAction(event -> this.pause()); // Lambda expression
+        pause.setText("Pause");
+        this.controls.getChildren().add(pause);
+
+        Button play = new Button();
+        play.setLayoutX(pause.getLayoutX() + BUTTON_BUFFER);
+        play.setLayoutY(1000);
+        play.setOnAction(event -> this.play());
+        play.setText("Play");
+        this.controls.getChildren().add(play);
+
+    
+
+
+
+    }
+
+
 
     public static void main(String[] args) {
         launch(args);
